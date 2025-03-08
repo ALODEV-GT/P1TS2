@@ -1,12 +1,14 @@
 import './App.css'
-import Monitor from './modules/monitor/components/Monitor'
+import Intersection from './modules/graphics/Intersection'
+// import Monitor from './modules/monitor/components/Monitor'
 
 
 function App() {
 
   return (
     <>
-      <Monitor />
+    <Intersection/>
+     {/* <Monitor/> */}
     </>
   )
 }

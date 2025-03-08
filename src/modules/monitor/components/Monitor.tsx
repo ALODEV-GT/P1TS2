@@ -1,4 +1,5 @@
 import './Monitor.css';
+import Car from '../../vehicles/car/Car';
 
 const trafficLights = [
     { className: "traffic-light-north", idPrefix: "north" },
@@ -40,12 +41,8 @@ function Monitor() {
                     ))}
                 </div>
             ))}
-            <div className="car">
-                <div className="window-front"></div>
-                <div className="window-back"></div>
-                <div className="headlight headlight-left"></div>
-                <div className="headlight headlight-right"></div>
-            </div>
+
+            <Car/>
         </div>
     );
 }
