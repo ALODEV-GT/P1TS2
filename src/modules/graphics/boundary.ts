@@ -11,7 +11,7 @@ export class Boundary {
     }
 
     draw() {
-        this.canvasCtx.fillStyle = 'blue'
+        this.canvasCtx.fillStyle = 'green'
         this.canvasCtx.fillRect(this.position.x, this.position.y, Boundary.WIDTH, Boundary.HEIGHT)
     }
 

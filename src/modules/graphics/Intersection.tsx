@@ -8,47 +8,12 @@ function Intersection() {
     const vehicleRef = useRef<Vehicle | null>(null);
 
     useEffect(() => {
-        const handleKeyDown = ({ key }: KeyboardEvent) => {
-            if (!vehicleRef.current) return;
+        if (!vehicleRef.current) return
 
-            switch (key) {
-                case 'ArrowUp':
-                    vehicleRef.current.velocity.y = -2;
-                    break;
-                case 'ArrowDown':
-                    vehicleRef.current.velocity.y = 2;
-                    break;
-                case 'ArrowLeft':
-                    vehicleRef.current.velocity.x = -2;
-                    break;
-                case 'ArrowRight':
-                    vehicleRef.current.velocity.x = 2;
-                    break;
-            }
-        };
-
-        const handleKeyUp = ({ key }: KeyboardEvent) => {
-            if (!vehicleRef.current) return;
-
-            switch (key) {
-                case 'ArrowUp':
-                case 'ArrowDown':
-                    vehicleRef.current.velocity.y = 0;
-                    break;
-                case 'ArrowLeft':
-                case 'ArrowRight':
-                    vehicleRef.current.velocity.x = 0;
-                    break;
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        window.addEventListener('keyup', handleKeyUp);
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-            window.removeEventListener('keyup', handleKeyUp);
-        };
+        setInterval(() => {
+            console.log("ejecutando");
+            vehicleRef.current!.move();
+        }, 1);
     }, []);
 
     useEffect(() => {
@@ -85,7 +50,7 @@ function Intersection() {
             }
         }
 
-        vehicleRef.current = new Vehicle(ctx, { x: 365, y: 670 }, { x: 0, y: 0 });
+        vehicleRef.current = new Vehicle(ctx, 100, "L");
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -93,7 +58,7 @@ function Intersection() {
             boundaries.forEach(boundary => boundary.draw());
 
             if (vehicleRef.current) {
-                vehicleRef.current.update();
+                // vehicleRef.current.update();
                 vehicleRef.current.draw();
             }
 
