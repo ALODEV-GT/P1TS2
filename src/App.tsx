@@ -1,17 +1,9 @@
 import './App.css'
-import CsvUploader from './modules/engine/uploader/FileUploader'
-import Intersection from './modules/graphics/Intersection'
-// import Monitor from './modules/monitor/components/Monitor'
-
-
+import AppLayout from './modules/shared/components/AppLayout/AppLayout'
 function App() {
 
   return (
-    <>
-      <Intersection />
-      {/* <Monitor/> */}
-      <CsvUploader />
-    </>
+    <AppLayout />
   )
 }
 
